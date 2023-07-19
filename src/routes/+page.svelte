@@ -16,9 +16,11 @@
 
 <FirebaseApp {firestore} {auth}>
   {#if $user}
-    <span>Logged in</span>
-    <button on:click={signOut}>Sign out</button>
+    <span class="">Logged in</span>
+    <button class="btn" on:click={signOut}>Sign out</button>
   {:else}
-    <button on:click={signInWithGoogle}>Sign in with Google</button>
+    <button class=" btn btn-primary" on:click={signInWithGoogle}
+      >Sign in with Google</button
+    >
   {/if}
 </FirebaseApp>
