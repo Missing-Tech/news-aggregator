@@ -2,7 +2,10 @@
   import ErrorBanner from "./../../lib/components/ErrorBanner.svelte";
   import { enhance } from "$app/forms";
   import { page } from "$app/stores";
+  import { fade } from "svelte/transition";
   export let form;
+
+  let loading = false;
 </script>
 
 <div class="flex flex-col justify-center items-center gap-10 h-screen">
@@ -10,10 +13,20 @@
   {#if form?.reason}
     <ErrorBanner reason={form.reason} />
   {/if}
+  {#if loading}
+    <span in:fade class="loading loading-dots loading-lg" />
+  {/if}
   <form
     class=" flex flex-col items-center justify-center gap-5"
     method="post"
-    use:enhance
+    use:enhance={() => {
+      loading = true;
+
+      return async ({ update }) => {
+        await update();
+        loading = false;
+      };
+    }}
   >
     <input
       type="text"
