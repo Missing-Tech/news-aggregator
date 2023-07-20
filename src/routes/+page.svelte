@@ -4,6 +4,7 @@
   import { onMount } from "svelte";
   import { FirebaseApp, userStore } from "sveltefire";
   import type { LayoutData } from "./$types";
+  import NewsCard from "$lib/components/NewsCard.svelte";
 
   let user = userStore(auth);
 
@@ -33,11 +34,11 @@
 <main>
   {#if data.articles}
     <h1>Articles</h1>
-    <ul>
+    <div class="flex flex-col gap-5">
       {#each data.articles as article}
-        <li>{article.title}</li>
+        <NewsCard {article} />
       {/each}
-    </ul>
+    </div>
   {:else}
     <h2>No recent headlines</h2>
   {/if}
