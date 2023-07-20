@@ -1,6 +1,14 @@
 import { NEWS_KEY } from "$env/static/private";
+import { redirect } from "@sveltejs/kit";
 
-export async function load() {
+export async function load({ locals }) {
+  const uid = locals.userID;
+
+  if (!uid) {
+    console.log(uid);
+    throw redirect(301, "/login");
+  }
+
   let articles: Array<Article> = [];
   await fetch(
     `https://newsdata.io/api/1/news?apikey=${NEWS_KEY}&language=en&country=gb`

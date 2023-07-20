@@ -194,6 +194,8 @@ package
 !.yarn/versions
 yarn.lock
 
+service-accounts.json
+
 # if you are NOT using Zero-installs, then:
 # comment the following lines
 !.yarn/cache

@@ -2,16 +2,6 @@
   import { auth, firestore } from "$lib/firebase";
   import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
   import { FirebaseApp, userStore } from "sveltefire";
-
-  let user = userStore(auth);
-
-  function signInWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider);
-  }
-  function signOut() {
-    auth.signOut();
-  }
 </script>
 
 <div class="flex flex-col items-center pt-72 gap-5">

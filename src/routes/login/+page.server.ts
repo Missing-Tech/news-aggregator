@@ -1,9 +1,10 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "$lib/firebase";
 import { fail, redirect } from "@sveltejs/kit";
+import { createAuthCookie } from "$lib/cookies";
 
 export const actions = {
-  default: async ({ cookies, request }) => {
+  default: async ({ request, cookies }) => {
     const data = await request.formData();
     const email = data.get("email") as string;
     const password = data.get("password") as string;
@@ -17,8 +18,9 @@ export const actions = {
       });
     }
     await signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         const user = userCredential.user;
+        await createAuthCookie(user, cookies);
       })
       .catch((error) => {
         const errorCode = error.code;
