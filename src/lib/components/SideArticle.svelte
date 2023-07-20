@@ -27,9 +27,9 @@
       {article.title}
     </h2>
     <div class="flex flex-row justify-between">
-      <div class="badge badge-{theme}">{article.source_id}</div>
+      <div>{article.source_id}</div>
       {#if article.creator}
-        <div class="label-text">{article.creator[0]}</div>
+        <div>{article.creator[0]}</div>
       {/if}
     </div>
     <div class="">

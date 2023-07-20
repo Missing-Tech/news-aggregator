@@ -20,11 +20,11 @@
     </a>
   </figure>
   <div class="flex flex-row py-4 justify-between">
-    <div class="badge badge-primary text-sm">
+    <div>
       {article.source_id}
     </div>
     {#if article.creator}
-      <div class="label-text">{article.creator[0]}</div>
+      <div>{article.creator[0]}</div>
     {/if}
   </div>
   <div class="flex flex-row justify-between line-clamp-2">
