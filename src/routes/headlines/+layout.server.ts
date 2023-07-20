@@ -1,7 +1,7 @@
-import { NEWS_KEY } from "$env/static/private";
+import { NYT_KEY } from "$env/static/private";
 import { redirect } from "@sveltejs/kit";
 
-export async function load({ locals }) {
+export async function load({ locals, params }) {
   const uid = locals.userID;
 
   if (!uid) {
@@ -9,16 +9,15 @@ export async function load({ locals }) {
     throw redirect(301, "/login");
   }
 
+  let category = params.category || "home";
+
   let articles: Array<Article> = [];
   await fetch(
-    `https://newsdata.io/api/1/news?apikey=${NEWS_KEY}&language=en&country=gb&q=sport`
+    `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${NYT_KEY}`
   )
-    .then((response) => response.json())
+    .then(async (response) => response.json())
     .then((data) => {
       articles = data.results as Array<Article>;
-    })
-    .catch((error) => {
-      throw error(404, { message: "Not found" });
     });
   return { articles: articles };
 }

@@ -5,11 +5,11 @@
 
 <div class="flex flex-rowgap-10">
   <figure>
-    <a href={article.link} target="_blank">
-      {#if article.image_url}
+    <a href={article.url} target="_blank">
+      {#if article.multimedia[0].url}
         <img
           class="max-w-xs w-64 object-cover rounded-lg"
-          src={article.image_url}
+          src={article.multimedia[0].url}
           alt="News article's ogimage"
         />
       {:else}
@@ -27,14 +27,15 @@
       {article.title}
     </h2>
     <div class="flex flex-row justify-between">
-      <div>{article.source_id}</div>
+      <!-- <div class="line-clamp-1 text-ellipsis max-w-lg">{article.source_id}</div>
       {#if article.creator}
-        <div>{article.creator[0]}</div>
-      {/if}
+        <div class="line-clamp-1 text-ellipsis max-w-lg">
+          {article.creator[0]}
+        </div>
+      {/if} -->
     </div>
     <div class="">
-      <a class="btn btn-{theme}" href={article.link} target="_blank"
-        >Read more</a
+      <a class="btn btn-{theme}" href={article.url} target="_blank">Read more</a
       >
     </div>
   </div>

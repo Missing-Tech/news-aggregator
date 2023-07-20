@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import { auth } from "$lib/firebase";
   import { signOut } from "firebase/auth";
+  import { goto } from "$app/navigation";
 
   async function logOut() {
     const res = await fetch("/headlines", {
@@ -34,7 +34,7 @@
         class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
       >
         <li><a href="/headlines/sports">Sports</a></li>
-        <li><a href="/headlines/tech">Tech</a></li>
+        <li><a href="/headlines/technology">Tech</a></li>
         <li><a href="/headlines/politics">Politics</a></li>
       </ul>
     </div>
