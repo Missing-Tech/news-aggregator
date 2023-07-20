@@ -11,7 +11,7 @@ export async function load({ locals }) {
 
   let articles: Array<Article> = [];
   await fetch(
-    `https://newsdata.io/api/1/news?apikey=${NEWS_KEY}&language=en&country=gb`
+    `https://newsdata.io/api/1/news?apikey=${NEWS_KEY}&language=en&country=gb&q=sport`
   )
     .then((response) => response.json())
     .then((data) => {
