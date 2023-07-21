@@ -3,11 +3,11 @@
 </script>
 
 <div class="flex flex-col">
-  <figure class=" object-cover">
+  <figure class="object-cover">
     <a href={article.url} target="_blank">
-      {#if article.multimedia[0].url}
+      {#if article.multimedia}
         <img
-          class="h-[70%] object-cover rounded-lg w-full max-h-96"
+          class="h-[70%] object-cover rounded-lg w-full max-h-96 aspect-video"
           src={article.multimedia[0].url}
           alt="News article's ogimage"
         />
@@ -19,13 +19,14 @@
       {/if}
     </a>
   </figure>
-  <div class="flex flex-row py-4 justify-between">
-    <!-- {#if article.creator}
-      <div>{article.creator[0]}</div>
-    {/if} -->
+  <div class="flex flex-row py-2 pt-4 justify-between">
+    <div>{article.byline}</div>
   </div>
-  <div class="flex flex-row justify-between line-clamp-2">
-    <h2 class="card-title">{article.title}</h2>
+  <h2 class="card-title">{article.title}</h2>
+  <div class="flex flex-row justify-between line-clamp-2 gap-4 pt-2">
+    <div class="line-clamp-3 text-ellipsis max-w-lg text-sm">
+      {article.abstract}
+    </div>
     <a class="btn btn-primary" href={article.url || ""} target="_blank"
       >Read more</a
     >

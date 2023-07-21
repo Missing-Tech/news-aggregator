@@ -12,11 +12,7 @@ export const actions = {
     if (!email.includes("@")) {
       return fail(422, { reason: "Email is not valid" });
     }
-    if (password.length < 7) {
-      return fail(423, {
-        reason: "Password needs to be >8 characters",
-      });
-    }
+
     await signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         const user = userCredential.user;
@@ -26,7 +22,7 @@ export const actions = {
         const errorCode = error.code;
         const errorMessage = error.message;
 
-        return fail(errorCode, { reason: "Failed to sign up" });
+        return fail(422, { reason: "Failed to log in" });
       });
 
     throw redirect(303, "/headlines");

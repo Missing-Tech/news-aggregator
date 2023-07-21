@@ -3,11 +3,11 @@
   import Headline from "$lib/components/Headline.svelte";
   import NewsCard from "$lib/components/NewsCard.svelte";
   import SideArticle from "$lib/components/SideArticle.svelte";
-
-  export let data;
-  $: ({ articles } = data);
   $: category = $page.params.category;
   $: categoryText = category.charAt(0).toUpperCase() + category.slice(1);
+
+  export let data;
+  $: articles = data.articles;
 </script>
 
 <main>

@@ -1,7 +1,6 @@
-import { NYT_KEY } from "$env/static/private";
-import { redirect } from "@sveltejs/kit";
+import { error, redirect } from "@sveltejs/kit";
 
-export async function load({ locals, params }) {
+export async function load({ fetch, locals, params, setHeaders }) {
   const uid = locals.userID;
 
   if (!uid) {
@@ -9,15 +8,21 @@ export async function load({ locals, params }) {
     throw redirect(301, "/login");
   }
 
-  let category = params.category || "home";
+  let category = params?.category ?? "home";
 
-  let articles: Array<Article> = [];
-  await fetch(
-    `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${NYT_KEY}`
-  )
-    .then(async (response) => response.json())
-    .then((data) => {
-      articles = data.results as Array<Article>;
+  setHeaders({
+    "cache-control": "max-age=60",
+  });
+
+  let articles: Article[] = [];
+  await fetch(`/headlines?category=${category}`)
+    .then((response) =>
+      response.json().then((data) => {
+        articles = data;
+      })
+    )
+    .catch(() => {
+      throw error(502, "Connection error");
     });
   return { articles: articles };
 }

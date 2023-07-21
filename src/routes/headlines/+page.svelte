@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { page } from "$app/stores";
   import Headline from "$lib/components/Headline.svelte";
   import NewsCard from "$lib/components/NewsCard.svelte";
   import SideArticle from "$lib/components/SideArticle.svelte";
 
   export let data;
-  $: ({ articles } = data);
+  $: articles = data.articles;
 </script>
 
 <main>
@@ -19,7 +18,7 @@
       </div>
       <div class="flex flex-col gap-10 items-center justify-items-center">
         <SideArticle article={articles[1]} theme="secondary" />
-        <SideArticle article={data.articles[2]} theme="accent" />
+        <SideArticle article={articles[2]} theme="accent" />
       </div>
     </div>
     <h1 class="text-3xl font-bold font-serif text-center">Recent Articles</h1>

@@ -22,7 +22,10 @@
     <h2 class="card-title h-14 items-start text-ellipsis line-clamp-2">
       {article.title}
     </h2>
-    <div class="card-actions justify-end pt-2">
+    <div class="card-actions justify-between pt-2 items-center">
+      <div class="line-clamp-1 text-ellipsis w-64">
+        {article.byline}
+      </div>
       <a class="btn btn-neutral" href={article.url} target="_blank">Read more</a
       >
     </div>
