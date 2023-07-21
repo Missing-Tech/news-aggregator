@@ -11,3 +11,11 @@ type Article = {
     }
   ];
 };
+
+type Account = [
+  name: string,
+  last_login: Date,
+  email: string,
+  signup_date: Date,
+  profile_picture: string
+];
