@@ -27,7 +27,7 @@
       <h2 class="card-title line-clamp-4 text-ellipsis min-w-full">
         {article.title}
       </h2>
-      <div class="line-clamp-1 text-ellipsis max-w-lg py-2">
+      <div class=" py-2">
         {article.byline}
       </div>
       <div class="line-clamp-3 text-ellipsis max-w-lg text-sm">

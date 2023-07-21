@@ -23,5 +23,18 @@ export async function GET({ url, setHeaders, request }) {
       articles = data.results as Array<Article>;
     });
 
+  // await fetch(
+  //   `https://api.newscatcherapi.com/v2/latest_headlines?countries=GB&topic=${category}`,
+  //   {
+  //     headers: {
+  //       'x-api-key': NEWS_KEY
+  //     }
+  //   }
+  // )
+  //   .then(async (response) => response.json())
+  //   .then((data) => {
+  //     articles = data.results as Array<Article>;
+  //   });
+
   return json(articles);
 }
