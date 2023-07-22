@@ -17,6 +17,9 @@
 </script>
 
 <div class="flex flex-col justify-center items-center gap-10 h-screen">
+  <a href="/" class="btn btn-ghost flex-nowrap uppercase text-3xl font-serif"
+    >News</a
+  >
   <h1 class="text-7xl font-serif uppercase">Sign up</h1>
   {#if form?.reason}
     <ErrorBanner reason={form.reason} />
