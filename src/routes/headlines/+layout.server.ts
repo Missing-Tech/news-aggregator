@@ -24,7 +24,7 @@ export async function load({
     .then((response) =>
       response.json().then((data) => {
         let message = data.message as string;
-        if (message != "") {
+        if (message == "Internal Error") {
           throw error(501, { message: "Something went wrong" });
         }
         articles = data;
