@@ -29,30 +29,34 @@
   {/if}
   <ul class="steps">
     <li
-      class="step"
+      class="step cursor-pointer"
       class:step-primary={step >= 0}
       class:step-secondary={step == 3}
+      on:click={() => (step = 0)}
     >
       Register
     </li>
     <li
-      class="step"
+      class="step cursor-pointer"
       class:step-primary={step >= 1}
       class:step-secondary={step == 3}
+      on:click={() => (step = 1)}
     >
       Choose Outlets
     </li>
     <li
-      class="step"
+      class="step cursor-pointer"
       class:step-primary={step >= 2}
       class:step-secondary={step == 3}
+      on:click={() => (step = 2)}
     >
       Edit Profile
     </li>
     <li
-      class="step"
+      class="step cursor-pointer"
       class:step-primary={step >= 3}
       class:step-secondary={step == 3}
+      on:click={() => (step = 3)}
     >
       Start reading
     </li>

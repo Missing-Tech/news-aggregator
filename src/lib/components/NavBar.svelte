@@ -44,7 +44,7 @@
   </div>
   <div class="navbar-center">
     <a
-      class="btn btn-ghost normal-case text-xl justify-center"
+      class="btn btn-ghost text-xl justify-center font-serif uppercase"
       href="/headlines">News</a
     >
   </div>

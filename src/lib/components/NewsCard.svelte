@@ -4,7 +4,7 @@
 
 <div class="card aspect-square h-[28rem]">
   <figure class="object-cover aspect-video">
-    {#if article.multimedia[0].url}
+    {#if article.multimedia}
       <img
         class=" object-cover h-56 aspect-video rounded-lg"
         src={article.multimedia[0].url}

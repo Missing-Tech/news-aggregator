@@ -1,11 +1,14 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, firestore } from "$lib/firebase";
-import { fail, redirect } from "@sveltejs/kit";
+import { ActionFailure, fail, redirect } from "@sveltejs/kit";
 import { createAuthCookie } from "$lib/cookies";
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import { currentUser } from "$lib/stores.js";
 export const actions = {
-  default: async ({ request, cookies }) => {
+  default: async ({
+    request,
+    cookies,
+  }): Promise<ActionFailure<{ reason: string }>> => {
     const data = await request.formData();
     const email = data.get("email") as string;
     const password = data.get("password") as string;

@@ -1,7 +1,9 @@
 <script lang="ts">
+  import ErrorBanner from "$lib/components/ErrorBanner.svelte";
   import Headline from "$lib/components/Headline.svelte";
   import NewsCard from "$lib/components/NewsCard.svelte";
   import SideArticle from "$lib/components/SideArticle.svelte";
+  import { onMount } from "svelte";
 
   export let data;
   $: articles = data.articles;

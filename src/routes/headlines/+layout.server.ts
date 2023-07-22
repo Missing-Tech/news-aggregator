@@ -1,6 +1,11 @@
 import { error, redirect } from "@sveltejs/kit";
 
-export async function load({ fetch, locals, params, setHeaders }) {
+export async function load({
+  fetch,
+  locals,
+  params,
+  setHeaders,
+}): Promise<{ articles: Article[] }> {
   const uid = locals.userID;
 
   if (!uid) {
@@ -18,11 +23,15 @@ export async function load({ fetch, locals, params, setHeaders }) {
   await fetch(`/headlines?category=${category}`)
     .then((response) =>
       response.json().then((data) => {
+        let message = data.message as string;
+        if (message != "") {
+          throw error(501, { message: "Something went wrong" });
+        }
         articles = data;
       })
     )
     .catch(() => {
-      throw error(502, "Connection error");
+      throw error(501, { message: "Something went wrong" });
     });
   return { articles: articles };
 }
