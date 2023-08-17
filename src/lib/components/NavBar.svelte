@@ -36,9 +36,11 @@
         tabindex="0"
         class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
       >
-        <li><a href="/headlines/sports">Sports</a></li>
-        <li><a href="/headlines/technology">Tech</a></li>
+        <li><a href="/headlines/sport">Sports</a></li>
+        <li><a href="/headlines/tech">Tech</a></li>
         <li><a href="/headlines/politics">Politics</a></li>
+        <li><a href="/headlines/music">Music</a></li>
+        <li><a href="/headlines/business">Business</a></li>
       </ul>
     </div>
   </div>
