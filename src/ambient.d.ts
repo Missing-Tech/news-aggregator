@@ -1,26 +1,26 @@
+type Article = {
+  title: string;
+  published_date: Date;
+  link: string;
+  author: string;
+  excerpt: string;
+  summary: string;
+  media: string;
+};
+
 // type Article = {
 //   title: string;
 //   published_date: Date;
 //   url: string;
-//   authors: string;
-//   excerpt: string;
+//   byline: string;
+//   abstract: string;
 //   subsection: string;
-//   media: string;
+//   multimedia: [
+//     {
+//       url: string;
+//     }
+//   ];
 // };
-
-type Article = {
-  title: string;
-  published_date: Date;
-  url: string;
-  byline: string;
-  abstract: string;
-  subsection: string;
-  multimedia: [
-    {
-      url: string;
-    }
-  ];
-};
 
 type Account = {
   name: string;

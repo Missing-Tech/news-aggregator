@@ -5,11 +5,11 @@
 
 <div class="flex flex-row min-w-full">
   <figure>
-    <a href={article.url} target="_blank">
-      {#if article.multimedia}
+    <a href={article.link} target="_blank">
+      {#if article.media}
         <img
           class="max-w-xs w-64 object-cover rounded-lg aspect-square"
-          src={article.multimedia[0].url}
+          src={article.media}
           alt="News article's ogimage"
         />
       {:else}
@@ -28,14 +28,15 @@
         {article.title}
       </h2>
       <div class=" py-2">
-        {article.byline}
+        {article.author}
       </div>
       <div class="line-clamp-3 text-ellipsis max-w-lg text-sm">
-        {article.abstract}
+        {article.excerpt}
       </div>
     </div>
     <div class="flex flex-row justify-end w-full h-full items-end">
-      <a class="btn btn-{theme}" href={article.url} target="_blank">Read more</a
+      <a class="btn btn-{theme}" href={article.link} target="_blank"
+        >Read more</a
       >
     </div>
   </div>

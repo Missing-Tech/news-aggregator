@@ -4,10 +4,10 @@
 
 <div class="card aspect-square h-[28rem]">
   <figure class="object-cover aspect-video">
-    {#if article.multimedia}
+    {#if article.media}
       <img
         class=" object-cover h-56 aspect-video rounded-lg"
-        src={article.multimedia[0].url}
+        src={article.media}
         alt="News article's ogimage"
       />
     {:else}
@@ -24,9 +24,10 @@
     </h2>
     <div class="card-actions justify-between pt-2 items-center">
       <div class="line-clamp-1 text-ellipsis w-64">
-        {article.byline}
+        {article.author}
       </div>
-      <a class="btn btn-neutral" href={article.url} target="_blank">Read more</a
+      <a class="btn btn-neutral" href={article.link} target="_blank"
+        >Read more</a
       >
     </div>
   </div>
