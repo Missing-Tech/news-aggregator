@@ -16,17 +16,13 @@ export async function load({
   let category = params?.category ?? "home";
 
   setHeaders({
-    "cache-control": "max-age=60",
+    "cache-control": "max-age=120",
   });
 
   let articles: Article[] = [];
   await fetch(`/headlines?category=${category}`)
     .then((response) =>
       response.json().then((data) => {
-        let message = data.message as string;
-        if (message == "Internal Error") {
-          throw error(501, { message: "Something went wrong" });
-        }
         articles = data;
       })
     )

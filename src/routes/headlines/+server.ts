@@ -6,11 +6,11 @@ export const DELETE: RequestHandler = async ({ cookies }) => {
   return json({ status: "signedOut" });
 };
 
-export async function GET({ url, setHeaders, request }) {
+export async function GET({ url, setHeaders, request }): Promise<Response> {
   const category = url.searchParams.get("category") || "";
 
   setHeaders({
-    "cache-control": "max-age=60",
+    "cache-control": "max-age=120",
   });
 
   let articles: Array<Article> = [];

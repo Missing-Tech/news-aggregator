@@ -6,7 +6,7 @@
 <div class="flex flex-row min-w-full">
   <figure>
     <a href={article.url} target="_blank">
-      {#if article.multimedia[0].url}
+      {#if article.multimedia}
         <img
           class="max-w-xs w-64 object-cover rounded-lg aspect-square"
           src={article.multimedia[0].url}
